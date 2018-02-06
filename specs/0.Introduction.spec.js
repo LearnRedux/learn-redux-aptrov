@@ -10,7 +10,7 @@ describe("Introduction", () => {
   });
 
   it("Use \"hint\" if you're get stuck", () => {
-    expect("hint").toBe(true);
+    expect(true).toBe(true);
   });
 
 });

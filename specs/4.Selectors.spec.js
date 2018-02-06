@@ -5,7 +5,7 @@ describe('Selectors', () => {
   it('selectors are functions that gets the state and computes a value', () => {
     const state = { name: 'Hoboken' };
     const getName = (state) => state.name;
-    expect(solveme).toBe(getName(state));
+    expect(state.name).toBe(getName(state));
   });
 
   describe('createSelector', () => {
@@ -16,11 +16,11 @@ describe('Selectors', () => {
 
       const getNameLength = createSelector(
         [ getName ],
-        (    name ) => {
+        (name) => {
           return name.length;
       });
 
-      expect(solveme).toBe(getNameLength(state));
+      expect(state.name.length).toBe(getNameLength(state));
     });
 
     it('returns the same instance if input is the same instance', () => {
@@ -29,14 +29,14 @@ describe('Selectors', () => {
 
       const getNameLengthObj = createSelector(
         [ getName ],
-        (    name ) => {
+        (name) => {
           return { length: name.length };
       });
 
       const lengthObj1 = getNameLengthObj(state);
       const lengthObj2 = getNameLengthObj(state);
 
-      expect(solveme).toBe(lengthObj2);
+      expect(lengthObj1).toBe(lengthObj2);
     });
   });
 });
